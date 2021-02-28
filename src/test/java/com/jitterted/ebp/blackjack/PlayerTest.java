@@ -56,4 +56,18 @@ public class PlayerTest {
 
         assertThat(player.playerBalance()).isEqualTo(100);
     }
+
+    @Test
+    public void testPlayerTotalAmountBetIsAccurateOverMultipleGames() {
+        Player player = new Player(100);
+        int betAmount = 10;
+
+        player.playerBets(betAmount);
+        player.playerLoses();
+
+        player.playerBets(betAmount);
+        player.playerWins();
+
+        assertThat(player.getTotalAmountBet()).isEqualTo(20);
+    }
 }

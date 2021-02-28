@@ -1,25 +1,19 @@
 package com.jitterted.ebp.blackjack;
 
 public class Player {
+    private int playerBalance = 0;
+    private int playerBet = 0;
+
+    public int getTotalAmountBet() {
+        return totalAmountBet;
+    }
+
+    private int totalAmountBet = 0;
 
     public Player(int balance) {
         this.playerBalance = balance;
     }
-    public Player() {
-
-    }
-
-    private int playerBalance = 0;
-    private int playerBet = 0;
-
-
-    public int getPlayerBalance() {
-        return playerBalance;
-    }
-
-    public int getPlayerBet() {
-        return playerBet;
-    }
+    public Player() { }
 
     public void playerDeposits(int amount) {
         playerBalance += amount;
@@ -28,6 +22,7 @@ public class Player {
     public void playerBets(int betAmount) {
         playerBet = betAmount;
         playerBalance -= betAmount;
+        totalAmountBet += betAmount;
     }
 
     public int playerBalance() {

@@ -11,59 +11,59 @@ public class GameBettingOutcomeTest {
 
   @Test
   public void playerWith20Bets10WhenWinsBalanceIs30() throws Exception {
-    Game game = createGameWithPlayerBalanceOf(20);
-    game.playerBets(10);
+    Player player = createGameWithPlayerBalanceOf(20);
+    player.playerBets(10);
 
-    game.playerWins();
+    player.playerWins();
 
-    assertThat(game.playerBalance())
+    assertThat(player.playerBalance())
         .isEqualTo(30);
   }
 
   @Test
   public void playerWith80Bets70WhenTiesBalanceIs80() throws Exception {
-    Game game = createGameWithPlayerBalanceOf(80);
-    game.playerBets(70);
+    Player player = createGameWithPlayerBalanceOf(80);
+    player.playerBets(70);
 
-    game.playerTies();
+    player.playerTies();
 
-    assertThat(game.playerBalance())
+    assertThat(player.playerBalance())
         .isEqualTo(80);
   }
 
   @Test
   public void playerWith35Bets30WhenLosesBalanceIs5() throws Exception {
-    Game game = createGameWithPlayerBalanceOf(35);
+    Player player = createGameWithPlayerBalanceOf(35);
 
-    game.playerBets(30);
-    game.playerLoses();
+    player.playerBets(30);
+    player.playerLoses();
 
-    assertThat(game.playerBalance())
+    assertThat(player.playerBalance())
         .isEqualTo(5);
   }
 
   @Test
   public void playerWith40Bets15BalanceIs25() throws Exception {
-    Game game = createGameWithPlayerBalanceOf(40);
+    Player player = createGameWithPlayerBalanceOf(40);
 
-    game.playerBets(15);
+    player.playerBets(15);
 
-    assertThat(game.playerBalance())
+    assertThat(player.playerBalance())
         .isEqualTo(25);
   }
 
   @Test
   public void playerDeposits18DollarsBalanceIs18Dollars() throws Exception {
-    Game game = createGameWithPlayerBalanceOf(18);
+    Player player = createGameWithPlayerBalanceOf(18);
 
-    assertThat(game.playerBalance())
+    assertThat(player.playerBalance())
         .isEqualTo(18);
   }
 
 
-  private Game createGameWithPlayerBalanceOf(int amount) {
-    Game game = new Game();
-    game.playerDeposits(amount);
-    return game;
+  private Player createGameWithPlayerBalanceOf(int amount) {
+    Player player = new Player();
+    player.playerDeposits(amount);
+    return player;
   }
 }

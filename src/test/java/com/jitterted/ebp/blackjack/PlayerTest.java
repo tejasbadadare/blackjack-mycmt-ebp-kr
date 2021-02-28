@@ -58,6 +58,17 @@ public class PlayerTest {
     }
 
     @Test
+    public void testLargeBetGets10Bonus() {
+        Player player = new Player(200);
+        int betAmount = 100;
+
+        player.playerBets(betAmount);
+        player.playerTies();
+
+        assertThat(player.playerBalance()).isEqualTo(210);
+    }
+
+    @Test
     public void testPlayerTotalAmountBetIsAccurateOverMultipleGames() {
         Player player = new Player(100);
         int betAmount = 10;
